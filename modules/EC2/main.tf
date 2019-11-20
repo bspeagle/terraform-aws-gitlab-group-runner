@@ -35,7 +35,7 @@ resource "aws_launch_configuration" "gitlab_runner" {
   }
 }
 
-resource "aws_autoscaling_group" "gitlab_rubber" {
+resource "aws_autoscaling_group" "gitlab_runner" {
   max_size = 1
   min_size = 1
   health_check_grace_period = 30
