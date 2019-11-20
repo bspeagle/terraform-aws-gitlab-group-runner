@@ -1,0 +1,49 @@
+concurrent = 10
+check_interval = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "${gitlab_runner_name}"
+  url = "${gitlab_url}"
+  token = <INSERT_TOKEN>
+  executor = "docker+machine"
+  limit = 10
+  environment = ["DOCKER_TLS_CERTDIR="]
+  [runners.docker]
+    tls_verify = false
+    image = "ubuntu:18.04"
+    privileged = true
+    disable_entrypoint_overwrite = false
+    oom_kill_disable = false
+    disable_cache = true
+  [runners.cache]
+    Type = "s3"
+    Shared = true
+    [runners.cache.s3]
+      ServerAddress = "s3.amazonaws.com"
+      AccessKey = "${aws_access_key}"
+      SecretKey = "${aws_secret_key}"
+      BucketName = "${s3_gitlab_runner_bucket}"
+      BucketLocation = "${region}"
+  [runners.machine]
+    IdleCount = 0
+    IdleTime = 1800
+    MaxBuilds = 100
+    MachineDriver = "amazonec2"
+    MachineName = "${gitlab_runner_name}-%s"
+    MachineOptions = [
+      "amazonec2-access-key=${aws_access_key}",
+      "amazonec2-secret-key=${aws_secret_key}",
+      "amazonec2-region=${region}",
+      "amazonec2-vpc-id=${vpc_id}",
+      "amazonec2-subnet-id=${subnet_id}",
+      "amazonec2-zone=a",
+      "amazonec2-use-private-address=true",
+      "amazonec2-tags=Primary Runner Name,gitlab-runner-cloud-primary,App,Gitlab.com",
+      "amazonec2-security-group=${gitlab_runner_sg}",
+      "amazonec2-instance-type=t3.large",
+    ]
+    OffPeakIdleCount = 0
+    OffPeakIdleTime = 0
