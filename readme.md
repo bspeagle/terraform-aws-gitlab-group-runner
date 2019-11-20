@@ -18,6 +18,7 @@ First things first. Do you have Terraform installed? [If not, let's get Terrafor
     - Let's rename this to `terraform.tfvars`. This is included in your `.gitignore` file.
         > :warning:	***Make sure this file never makes it to your repo as this will contain your AWS access and secret keys.***
     - Now let's fill out the variables in this file!
+    
         | Variable | Description | Required |
         | --- | --- | --- |
         | access_key | AWS access key Terraform will use to create infrastructure in AWS. | YES |
