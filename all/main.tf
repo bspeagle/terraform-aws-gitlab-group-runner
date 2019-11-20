@@ -44,6 +44,7 @@ module "s3" {
   app = "${var.app}"
   vpc_id = var.vpc_id != "" ? data.aws_vpc.custom[0].id : data.aws_vpc.default[0].id
   subnet_ids = "${data.aws_subnet_ids.default.ids}"
+  subnet_zone_mapping = "${var.subnet_zone_mapping}"
   s3_bucket_prefix = "${var.s3_bucket_prefix}"
   gitlab_runner_sg = "${module.secGroups.gitlab_runner_sg}"
   gitlab_url = "${var.gitlab_url}"
