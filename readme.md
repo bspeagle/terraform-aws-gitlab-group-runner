@@ -18,21 +18,21 @@ First things first. Do you have Terraform installed? [If not, let's get Terrafor
     - Let's rename this to `terraform.tfvars`. This is included in your `.gitignore` file.
         > :warning:	***Make sure this file never makes it to your repo as this will contain your AWS access and secret keys.***
     - Now let's fill out the variables in this file!
-        Variable | Description | Required
-        --- | --- | ---
-        access_key | AWS access key Terraform will use to create infrastructure in AWS. | YES
-        secret_key | AWS secret key Terraform will use to create infrastructure in AWS. | YES
-        region | AWS region to create infrastructure in | YES
-        app | The name of the app. You can name it whatever you want. | YES
-        vpc_id | The ID of the VPC you want the runner created in. If no value provided we'll use the default VPC of your AWS account | NO
-        s3_bucket_prefix | The prefix to use when creating the S3 bucket. The bucket name is a combo of prefix and app name | YES
-        ssh_access | Specify whether the runner instance should have SSH access enabled. Great for testing but shouldn't be needed for a prod deployment | YES
-        key_pair | Name of the keypair to use with the runner instance. This should be an existing key. We do not generate this for you :( | YES
-        gitlab_url | URL of your Gitlab instance. This can be changed if you use a self hosted instance | YES
-        gitlab_runner_reg_token | The token that is generated on the 'Runners'  section of the 'CI/CD Settings' page for your group. | YES
-        gitlab_api_token | The personal access token generated (User Settings > Access Tokens) to use with Gitlab | YES
-        gitlab_group_id | ID of the Gitlab group the runner will be registered to. | YES
-        gitlab_runner_name | The name of the runner. This is used to tag the runner and I think it shows up somewhere else :man_shrugging:. This can be anything. | YES
+        | Variable | Description | Required |
+        | --- | --- | --- |
+        | access_key | AWS access key Terraform will use to create infrastructure in AWS. | YES |
+        | secret_key | AWS secret key Terraform will use to create infrastructure in AWS. | YES |
+        | region | AWS region to create infrastructure in | YES
+        | app | The name of the app. You can name it whatever you want. | YES
+        | vpc_id | The ID of the VPC you want the runner created in. If no value provided we'll use the default VPC of your AWS account | NO |
+        | s3_bucket_prefix | The prefix to use when creating the S3 bucket. The bucket name is a combo of prefix and app name | YES |
+        | ssh_access | Specify whether the runner instance should have SSH access enabled. Great for testing but shouldn't be needed for a prod deployment | YES |
+        | key_pair | Name of the keypair to use with the runner instance. This should be an existing key. We do not generate this for you :( | YES |
+        | gitlab_url | URL of your Gitlab instance. This can be changed if you use a self hosted instance | YES |
+        | gitlab_runner_reg_token | The token that is generated on the 'Runners'  section of the 'CI/CD Settings' page for your group. | YES |
+        | gitlab_api_token | The personal access token generated (User Settings > Access Tokens) to use with Gitlab | YES |
+        | gitlab_group_id | ID of the Gitlab group the runner will be registered to. | YES |
+        | gitlab_runner_name | The name of the runner. This is used to tag the runner and I think it shows up somewhere else :man_shrugging:. This can be anything. | YES |
 
 ---
 
