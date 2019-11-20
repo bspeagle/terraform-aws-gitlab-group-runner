@@ -13,6 +13,3 @@ crash.log
 
 # .tfvars file
 all/terraform.tfvars
-
-# Private .pem keypairs
-files/prvt_key/*.pem
