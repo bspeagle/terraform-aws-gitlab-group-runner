@@ -47,7 +47,7 @@ gitlab-runner register \
   --executor "docker" \
   --docker-image alpine:latest \
   --description "Docker runner: AWS > us-east-1." \
-  --tag-list "aws,${gitlab_group_id},${gitlab_runner_name}" \
+  --tag-list "aws,docker,${gitlab_group_id},${gitlab_runner_name}" \
   --locked="false"
 
 # Copy config file from S3, locate runner token, update config and restart service
