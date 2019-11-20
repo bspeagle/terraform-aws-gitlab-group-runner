@@ -8,8 +8,8 @@ stages:
 variables:
     TEST_IMAGE: $CI_REGISTRY_IMAGE/$CI_PROJECT_NAME:test
 
-build:
-    stage: build
+build-publish:
+    stage: build-publish
     script:
         - export DOCKER_HOST=$DOCKER_PORT
         - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
