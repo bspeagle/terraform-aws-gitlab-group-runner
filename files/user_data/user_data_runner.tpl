@@ -46,7 +46,7 @@ gitlab-runner register \
   --registration-token ${gitlab_runner_reg_token} \
   --executor "docker" \
   --docker-image alpine:latest \
-  --description "Docker runner: AWS > us-east-1." \
+  --description "Docker runner: AWS > ${region}." \
   --tag-list "aws,docker,${gitlab_group_id},${gitlab_runner_name}" \
   --locked="false"
 

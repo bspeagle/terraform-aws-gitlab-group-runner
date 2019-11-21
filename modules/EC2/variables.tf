@@ -1,3 +1,5 @@
+variable "region" {}
+
 variable "app" {}
 
 variable "vpc_id" {}

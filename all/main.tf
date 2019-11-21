@@ -58,6 +58,7 @@ module "IAM" {
 
 module "ec2" {
   source = "../modules/EC2"
+  region = "${var.region}"
   app = "${var.app}"
   vpc_id = var.vpc_id != "" ? data.aws_vpc.custom[0].id : data.aws_vpc.default[0].id
   subnet_ids = "${data.aws_subnet_ids.default.ids}"

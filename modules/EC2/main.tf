@@ -12,6 +12,7 @@ data "template_file" "user_data_runner" {
   template = "${file("../files/user_data/user_data_runner.tpl")}"
 
   vars = {
+    region = "${var.region}"
     s3_gitlab_runner_bucket = "${var.s3_gitlab_runner_bucket}"
     gitlab_url = "${var.gitlab_url}"
     gitlab_api_token = "${var.gitlab_api_token}"
